@@ -44,8 +44,8 @@ public class MessageTableModel extends AbstractTableModel implements MessageList
    *
    */
   public static final String PROP_DATA = "data";
-  private List<MessageTableRecord> data = new ArrayList<MessageTableRecord>();
-  private String[] columnName = new String[]{
+  private List<MessageTableRecord> data = new ArrayList<>();
+  private String[] COLUMN_NAME = new String[]{
     "Timestamp",
     "Message ID",
     "Correlation ID",
@@ -57,7 +57,8 @@ public class MessageTableModel extends AbstractTableModel implements MessageList
     "Text"
   };
   private Integer messagesReceived = 0;
-  private DefaultMessageListenerContainer listenerContainer = new DefaultMessageListenerContainer();
+  private final DefaultMessageListenerContainer listenerContainer = 
+    new DefaultMessageListenerContainer();
 
   /**
    *
@@ -155,26 +156,26 @@ public class MessageTableModel extends AbstractTableModel implements MessageList
 
   @Override
   public int getColumnCount() {
-    return columnName.length;
+    return COLUMN_NAME.length;
   }
 
   @Override
   public String getColumnName(int column) {
-    return columnName[column];
+    return COLUMN_NAME[column];
   }
 
   /**
-   * @return the columnName
+   * @return the COLUMN_NAME
    */
-  public String[] getColumnName() {
-    return columnName;
+  public String[] getCOLUMN_NAME() {
+    return COLUMN_NAME;
   }
 
   /**
-   * @param aColumnName the columnName to set
+   * @param aColumnName the COLUMN_NAME to set
    */
-  public void setColumnName(String[] aColumnName) {
-    columnName = aColumnName;
+  public void setCOLUMN_NAME(String[] aColumnName) {
+    COLUMN_NAME = aColumnName;
   }
 
   @Override
@@ -197,13 +198,13 @@ public class MessageTableModel extends AbstractTableModel implements MessageList
           result = "";
           break;
         case 4:
-          result = Integer.valueOf(qRecord.getJMSPriority()).toString();
+          result = Integer.toString(qRecord.getJMSPriority());
           break;
         case 5:
-          result = Integer.valueOf(qRecord.getJMSDeliveryMode()).toString();
+          result = Integer.toString(qRecord.getJMSDeliveryMode());
           break;
         case 6:
-          result = Long.valueOf(qRecord.getJMSExpiration()).toString();
+          result = Long.toString(qRecord.getJMSExpiration());
           break;
         case 7:
           result = qRecord.getJMSType();

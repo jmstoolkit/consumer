@@ -87,7 +87,7 @@ public class ConsumerView extends FrameView {
 
   /**
    *
-   * @param app
+   * @param app A SingleFrameApplication
    */
   public ConsumerView(SingleFrameApplication app) {
     super(app);
@@ -519,7 +519,7 @@ public class ConsumerView extends FrameView {
    */
   @Action
   public void clearTable() {
-    this.messageTableModel.setData(new ArrayList<MessageTableRecord>());
+    this.messageTableModel.setData(new ArrayList<>());
   }
 
   /**

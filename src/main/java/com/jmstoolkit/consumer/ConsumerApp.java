@@ -22,35 +22,40 @@ import org.jdesktop.application.SingleFrameApplication;
  */
 public class ConsumerApp extends SingleFrameApplication {
 
-    /**
-     * At startup create and show the main frame of the application.
-     */
-    @Override protected void startup() {
-        show(new ConsumerView(this));
-    }
+  /**
+   * At startup create and show the main frame of the application.
+   */
+  @Override
+  protected void startup() {
+    show(new ConsumerView(this));
+  }
 
-    /**
-     * This method is to initialize the specified window by injecting resources.
-     * Windows shown in our application come fully initialized from the GUI
-     * builder, so this additional configuration is not needed.
-   * @param root
-     */
-    @Override protected void configureWindow(java.awt.Window root) {
-    }
+  /**
+   * This method is to initialize the specified window by injecting resources.
+   * Windows shown in our application come fully initialized from the GUI
+   * builder, so this additional configuration is not needed.
+   *
+   * @param root The java.aws.Window for the root window
+   */
+  @Override
+  protected void configureWindow(java.awt.Window root) {
+  }
 
-    /**
-     * A convenient static getter for the application instance.
-     * @return the instance of ConsumerApp
-     */
-    public static ConsumerApp getApplication() {
-        return Application.getInstance(ConsumerApp.class);
-    }
+  /**
+   * A convenient static getter for the application instance.
+   *
+   * @return the instance of ConsumerApp
+   */
+  public static ConsumerApp getApplication() {
+    return Application.getInstance(ConsumerApp.class);
+  }
 
-    /**
-     * Main method launching the application.
-   * @param args
-     */
-    public static void main(String[] args) {
-        launch(ConsumerApp.class, args);
-    }
+  /**
+   * Main method launching the application.
+   *
+   * @param args Arguments to application
+   */
+  public static void main(String[] args) {
+    launch(ConsumerApp.class, args);
+  }
 }
